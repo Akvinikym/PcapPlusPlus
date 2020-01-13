@@ -57,6 +57,9 @@ struct rte_mbuf;
 struct rte_mempool;
 struct rte_eth_conf;
 struct rte_eth_dev_tx_buffer;
+#if defined(WIN32) || defined(WINx64)
+struct timespec;
+#endif
 
 /**
 * \namespace pcpp

@@ -6,6 +6,7 @@
 #include <sstream>
 #if defined(WIN32) || defined(WINx64) //for using ntohl, ntohs, etc.
 #include <winsock2.h>
+#include "TimespecWin.h"
 #elif LINUX
 #include <in.h>
 #endif
@@ -40,7 +41,7 @@ bool GeneralFilter::matchPacketWithFilter(RawPacket* rawPacket)
 	pktHdr.caplen = rawPacket->getRawDataLen();
 	pktHdr.len = rawPacket->getRawDataLen();
 	timespec ts = rawPacket->getPacketTimeStamp();
-	TIMESPEC_TO_TIMEVAL(&pktHdr.ts, &ts)
+	TIMESPEC_TO_TIMEVAL(&pktHdr.ts, &ts);
 
 	return (pcap_offline_filter(m_program, &pktHdr, rawPacket->getRawData()) != 0);
 }

@@ -4,6 +4,10 @@
 #include "PcapDevice.h"
 #include "RawPacket.h"
 
+#if defined(WIN32) || defined(WINx64)
+struct timespec;
+#endif
+
 /// @file
 
 /**

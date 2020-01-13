@@ -17,6 +17,7 @@
 #ifdef _MSC_VER
 #include <time.h>
 #include "SystemUtils.h"
+#include "TimespecWin.h"
 #endif
 
 

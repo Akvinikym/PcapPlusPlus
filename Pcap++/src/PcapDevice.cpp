@@ -2,6 +2,9 @@
 #include "PcapFilter.h"
 #include "Logger.h"
 #include <pcap.h>
+#if defined(WIN32) || defined(WINx64)
+#include "TimespecWin.h"
+#endif
 
 namespace pcpp
 {
@@ -89,7 +92,7 @@ bool IPcapDevice::matchPacketWithFilter(std::string filterAsString, RawPacket* r
 	pktHdr.caplen = rawPacket->getRawDataLen();
 	pktHdr.len = rawPacket->getRawDataLen();
 	timespec ts = rawPacket->getPacketTimeStamp();
-	TIMESPEC_TO_TIMEVAL(&pktHdr.ts, &ts)
+	TIMESPEC_TO_TIMEVAL(&pktHdr.ts, &ts);
 
 	return (pcap_offline_filter(&prog, &pktHdr, rawPacket->getRawData()) != 0);
 }

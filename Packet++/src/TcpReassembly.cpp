@@ -10,6 +10,9 @@
 #include <sstream>
 #include <vector>
 #include "EndianPortable.h"
+#if defined(WIN32) || defined(WINx64)
+#include "TimespecWin.h"
+#endif
 
 #define PURGE_FREQ_SECS 1
 

@@ -209,6 +209,9 @@ namespace pcpp
 	 * Max packet size supported
 	 */
 #define PCPP_MAX_PACKET_SIZE 65536
+#if defined(WIN32) || defined(WINx64)
+struct timespec;
+#endif
 
 	/**
 	 * @class RawPacket

@@ -46,6 +46,9 @@ extern "C" {
 
 struct _light_pcapng_t;
 typedef struct _light_pcapng_t light_pcapng_t;
+#if defined(WIN32) || defined(WINx64)
+struct timespec;
+#endif
 
 typedef struct _light_packet_header {
 	uint32_t interface_id;

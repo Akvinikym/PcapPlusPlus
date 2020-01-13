@@ -9,6 +9,9 @@
 #include "PlatformSpecificUtils.h"
 #include <errno.h>
 #include <pfring.h>
+#if defined(WIN32) || defined(WINx64)
+#include "TimespecWin.h"
+#endif
 
 
 #define DEFAULT_PF_RING_SNAPLEN 1600

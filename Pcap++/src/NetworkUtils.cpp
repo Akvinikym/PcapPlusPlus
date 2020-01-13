@@ -14,6 +14,7 @@
 #include "EndianPortable.h"
 #ifdef _MSC_VER
 #include "SystemUtils.h"
+#include "TimespecWin.h"
 #endif
 #ifndef ETIMEDOUT
 #define ETIMEDOUT  10060

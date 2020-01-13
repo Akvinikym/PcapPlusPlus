@@ -21,6 +21,9 @@
 #include <string>
 #include <stdint.h>
 #include <unistd.h>
+#if defined(WIN32) || defined(WINx64)
+#include "TimespecWin.h"
+#endif
 
 #define MAX_BURST_SIZE 64
 
